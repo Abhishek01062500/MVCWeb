@@ -4,37 +4,35 @@ on:
   push:
     branches:
       - develop
-      - "feature"
+      
   pull_request:
     branches:
       - develop
-      - "feature"
   schedule:
     - cron: "30 11 * * 3,5"  # Runs every Wednesday & Friday at 5 PM IST (11:30 AM UTC)
 
 jobs:
   build:
-    runs-on: self-hosted  
+    runs-on: self-hosted
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Set Up Java
+        uses: actions/setup-java@v3
         with:
-          node-version: 18
-
-      - name: Install Dependencies
-        run: npm install
+          distribution: 'temurin'  # Use Eclipse Temurin JDK
+          java-version: '17'       # Change this to match your project's Java version
+          cache: 'maven'
 
       - name: Build Project
-        run: npm run build
+        run: mvn clean package -DskipTests
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-output
-          path: dist/
+          path: target/*.jar
 
   test:
     runs-on: self-hosted
@@ -43,16 +41,18 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Set Up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
 
       - name: Run Unit Tests
-        run: npm test -- --reporter=jest-junit
-        env:
-          JEST_JUNIT_OUTPUT_DIR: ./reports/
+        run: mvn test
 
       - name: Upload Test Reports
         uses: actions/upload-artifact@v4
         with:
           name: test-reports
-          path: reports/ 
+          path: target/surefire-reports/
