@@ -15,7 +15,7 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-      - name: Checkout Repository
+      - name: Checkout Repository #checkout
         uses: actions/checkout@v4
 
       - name: Set Up Java
@@ -46,7 +46,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-          cache: 'maven'
+          cache: 'maven' 
 
       - name: Run Unit Tests
         run: mvn test
