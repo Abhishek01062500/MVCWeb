@@ -8,7 +8,7 @@ on:
       
   pull_request:
     branches:
-      - feature #both branches
+      - feature #both branches PUSH PULL
       - develop
   schedule:
     - cron: "30 11 * * 3,5"  # Runs every Wednesday & Friday at 5 PM IST (11:30 AM UTC)
