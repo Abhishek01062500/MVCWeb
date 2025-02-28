@@ -3,10 +3,12 @@ name: CI Pipeline
 on:
   push:
     branches:
+      - feature
       - develop
       
   pull_request:
     branches:
+      - feature
       - develop
   schedule:
     - cron: "30 11 * * 3,5"  # Runs every Wednesday & Friday at 5 PM IST (11:30 AM UTC)
