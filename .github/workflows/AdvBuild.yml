@@ -50,12 +50,13 @@ jobs:
 
       - name: Run Unit Tests
         run: |
-            mvn test | tee test-output.log
-            if [ $? -ne 0 ]; then
-              echo "❌ Tests failed!"
+            mvn test | Tee-Object -FilePath test-output.log
+            if ($LASTEXITCODE -ne 0) {
+              Write-Host "❌ Tests failed!"
               exit 1
-            fi
-        shell: bash  # ✅ Forces Bash shell
+            }
+        shell: pwsh  # ✅ Runs in PowerShell, compatible with Windows
+        
         
 
       - name: Upload Test Reports
