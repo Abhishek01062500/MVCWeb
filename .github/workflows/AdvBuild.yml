@@ -10,6 +10,9 @@ on:
       - feature
       - Develop
 
+  schedule:
+    - cron: '30 11 * * 3,5'
+
 jobs:
   build:
     runs-on: self-hosted
