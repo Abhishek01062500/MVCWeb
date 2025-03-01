@@ -55,7 +55,7 @@ jobs:
               Write-Host "❌ Tests failed!"
               exit 1
             }
-        shell: pwsh  # ✅ Runs in PowerShell, compatible with Windows
+        shell: powershell  
         
         
 
