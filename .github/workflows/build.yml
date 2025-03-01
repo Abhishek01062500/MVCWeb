@@ -4,12 +4,12 @@ on:
   push:
     branches:
       - feature
-      - develop
+      - Develop
       
   pull_request:
     branches:
       - feature #both branches PUSH and pull
-      - develop
+      - Develop
   schedule:
     - cron: "30 11 * * 3,5"  # Runs every Wednesday & Friday at 5 PM IST (11:30 AM UTC)
 
