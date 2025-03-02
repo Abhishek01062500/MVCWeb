@@ -22,7 +22,18 @@
 </dependency>
   	
   </dependencies>
+  
+  <properties>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
   <build>
     <finalName>Spring_MVC</finalName>
+     <plugins>
+        <plugin>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>4.0.0.4121</version>
+        </plugin>
+    </plugins>
   </build>
 </project>
