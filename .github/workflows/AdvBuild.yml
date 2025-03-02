@@ -54,13 +54,13 @@ jobs:
                 env:
                   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
                 run: |
-                  mvn sonar:sonar \
+                  mvn sonar:sonar `
                     -Dsonar.projectKey=Abhishek01062500_MVCWeb `
                     -Dsonar.organization=abhishek01062500 `
                     -Dsonar.host.url=https://sonarcloud.io `
-                     -Dsonar.branch.name=feature ` 
+                     -Dsonar.branch.name=feature `
                     -Dsonar.login=$SONAR_TOKEN
-                shell : pwsh #
+                shell : powershell
   test:
     runs-on: self-hosted
     needs: build
