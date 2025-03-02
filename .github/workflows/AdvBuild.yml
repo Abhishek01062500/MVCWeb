@@ -60,7 +60,7 @@ jobs:
                     -Dsonar.host.url=https://sonarcloud.io `
                      -Dsonar.branch.name=feature ` 
                     -Dsonar.login=$SONAR_TOKEN
-                shell : pwsh #powershell
+                shell : pwsh #
   test:
     runs-on: self-hosted
     needs: build
