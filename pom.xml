@@ -7,6 +7,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Spring_MVC Maven Webapp</name>
   <url>http://maven.apache.org</url>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -14,27 +15,36 @@
       <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-<dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-webmvc</artifactId>
-    <version>5.3.20</version>
-</dependency>
-  	
+    <!-- Spring MVC Dependency -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>5.3.20</version>
+    </dependency>
   </dependencies>
 
   <properties>
-    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     <sonar.organization>abhishek01062500</sonar.organization>
-</properties>
+  </properties>
+
   <build>
     <finalName>Spring_MVC</finalName>
-     <plugins>
-        <plugin>
-            <groupId>org.sonarsource.scanner.maven</groupId>
-            <artifactId>sonar-maven-plugin</artifactId>
-            <version>4.0.0.4121</version>
-        </plugin>
+    <plugins>
+      <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>4.0.0.4121</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>sonar</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <sonar.host.url>https://sonarcloud.io</sonar.host.url> 
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>
