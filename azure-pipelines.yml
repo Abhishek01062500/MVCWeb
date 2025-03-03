@@ -17,7 +17,7 @@ steps:
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'Path'
     jdkVersionOption: '11'
-    jdkArchitectureOption: 'x64'
+    jdkArchitecture: 'x64'  # Corrected the parameter name
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
