@@ -37,13 +37,10 @@
         <executions>
           <execution>
             <goals>
-              <goal>sonar</goal>
+              <goal>org.sonarsource.scanner.maven:sonar-maven-plugin:sonar </goal>
             </goals>
           </execution>
-        </executions>
-        <configuration>
-          <sonar.host.url>https://sonarcloud.io</sonar.host.url> 
-        </configuration>
+         </executions>
       </plugin>
     </plugins>
   </build>
