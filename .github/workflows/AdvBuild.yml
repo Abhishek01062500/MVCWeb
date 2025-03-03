@@ -138,8 +138,8 @@ jobs:
         with:
           server_address: smtp.gmail.com
           server_port: 465
-          username: ${{ secrets.USERNAME}}
-          password: ${{ secrets.PASSWORD }}
+          username: ${{ secrets.SMTP_USERNAME}}
+          password: ${{ secrets.SMTP_PASSWORD }}
           subject: "🚨 GitHub Actions Build Failed!"
           body: |
             ❌ The CI/CD pipeline for Java MVC application has **failed**.
@@ -153,4 +153,4 @@ jobs:
             
             Please take immediate action!
           to: ${{ secrets.MAIL_RECEIVER }}
-          from: ${{ secrets.USERNAME }}
+          from: ${{ secrets.SMTP_USERNAME }}
