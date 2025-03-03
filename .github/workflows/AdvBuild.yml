@@ -54,6 +54,7 @@ jobs:
                 env:
                    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
                 run: |
+                 mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar `
                     mvn sonar:sonar `
                       -Dsonar.projectKey="Abhishek01062500_MVCWeb" `
                       -Dsonar.organization="abhishek01062500" `
