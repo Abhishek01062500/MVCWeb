@@ -36,31 +36,31 @@ jobs:
           name: build-output
           path: target/*.jar
 
-  # sonarcloud:
-  #           runs-on: self-hosted
-  #           needs: build
-  #           steps:
-  #             - name: Checkout Repository
-  #               uses: actions/checkout@v4
+  sonarcloud:
+            runs-on: self-hosted
+            needs: build
+            steps:
+              - name: Checkout Repository
+                uses: actions/checkout@v4
         
-  #             - name: Set Up Java
-  #               uses: actions/setup-java@v3
-  #               with:
-  #                 distribution: 'temurin'
-  #                 java-version: '17'
-  #                 cache: 'maven'
+              - name: Set Up Java
+                uses: actions/setup-java@v3
+                with:
+                  distribution: 'temurin'
+                  java-version: '17'
+                  cache: 'maven'
         
-  #             - name: Run SonarCloud Analysis
-  #               env:
-  #                  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-  #               run: |
-  #                   mvn sonar:sonar `
-  #                     -Dsonar.projectKey="Abhishek01062500_MVCWeb" `
-  #                     -Dsonar.organization="abhishek01062500" `
-  #                     -Dsonar.host.url="https://sonarcloud.io" `
-  #                     -Dsonar.branch.name="feature" `
-  #                     -Dsonar.login="$env:SONAR_TOKEN"
-  #               shell: powershell
+              - name: Run SonarCloud Analysis
+                env:
+                   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+                run: |
+                    mvn sonar:sonar `
+                      -Dsonar.projectKey="Abhishek01062500_MVCWeb" `
+                      -Dsonar.organization="abhishek01062500" `
+                      -Dsonar.host.url="https://sonarcloud.io" `
+                      -Dsonar.branch.name="feature" `
+                      -Dsonar.login="$env:SONAR_TOKEN"
+                shell: powershell
                 
   test:
     runs-on: self-hosted
