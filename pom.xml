@@ -7,10 +7,6 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Spring_MVC Maven Webapp</name>
   <url>http://maven.apache.org</url>
-  
-  <properties>
-    <sonar.buildString>...</sonar.buildString>
-  </properties>
 
   <dependencies>
     <dependency>
@@ -37,7 +33,7 @@
         <executions>
           <execution>
             <goals>
-                <goal>mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar</goal>
+                <goal>sonar</goal>
                             
             </goals>
           </execution>
